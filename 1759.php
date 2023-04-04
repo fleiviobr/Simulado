@@ -3,8 +3,8 @@
 
 $x = fgets(STDIN);
 
-for ($i = 0; $i < $x; $i++) {
+for ($i = 1; $i < $x; $i++) {
     echo "Ho ";
 }
 
-echo "!" . PHP_EOL;
+echo "Ho!" . PHP_EOL;
