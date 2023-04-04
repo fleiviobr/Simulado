@@ -1,38 +1,30 @@
 <?php
-// Encaixa ou Não II
-
-$n = readline();
-
-for ($i = 0; $i < $n; $i++) {
-    $strings = fgets(STDIN);
-    $string = explode(" ", $strings);
-    $a = $string[0];
-    $b = $string[1];
-
-    $ta = strlen($a) - 1;
-    $tb = strlen($b) - 1;
+// Encaixa ou nao II
+    $n = intval(trim(fgets(STDIN)));
     
-    if ($ta >= $tb){
-        $td = $ta - $tb;
-        $k = 0;
-        for ($j = $td; $j <= $ta; $j++) {
-            if ($a[$j] == $b[$k]) {
-                $e = 1;
-            } else {
-                $e = 0;
-                break;
-            }            
-            $k++;
-        }
-    } else {
-        $e = 0;
+    while($n>0){
+        $c=0;
+        $entrada = explode(' ', trim(fgets(STDIN)));
+        $one = strrev($entrada[0]);
+        $two =  strrev($entrada[1]);
+        $lenOne = strlen($one);
+        $lenTwo = strlen($two);
+    
+            if($lenOne >= $lenTwo){
+                for($i=0; $i<$lenOne; $i++){
+                    if($one[$i] == $two[$i]){
+                        $c++;
+                    }else{
+                        $i++;
+                    }
+                }
+            }
+            if($c == $lenTwo){
+                echo "encaixa" . PHP_EOL;
+            }else{
+                echo "nao encaixa" . PHP_EOL;
+            }
+        $n--;
     }
-
-    if($e == 1) {
-        echo "encaixa" . PHP_EOL;
-    } 
-    else {
-        echo "nao encaixa" . PHP_EOL;
-    }
-}
+    
 ?>
